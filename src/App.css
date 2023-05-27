@@ -1,0 +1,302 @@
+@font-face {
+  font-family: 'Markot-Bold';
+  src: url('./Assets/Fonts/MarkOT-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Markot-Book';
+  src: url('./Assets/Fonts/MarkOT-Book.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Markot-Regular';
+  src: url('./Assets/Fonts/MarkOT-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Markot-Thin';
+  src: url('./Assets/Fonts/MarkOT-Thin.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Markot';
+  src: url('./Assets/Fonts/MarkOT.otf') format('opentype');
+}
+
+/*-------------------HEADER--------------------*/
+/* styles for navbar */
+header{
+}
+nav {
+  background-color: darkcyan;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 10px 20px;
+}
+.navbar-links {
+  display: flex;
+  gap: 12px;
+}
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-family: 'Markot-Book';
+  font-size: 11px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::before {
+  transform: scaleX(1);
+}
+.signin-link{
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+.signin-link img{
+  margin-left: 10px;
+  height: 17px;
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+.signin-link:hover img {
+  transform: rotate(40deg);
+}
+/*styles for hamburger*/
+.container-Hamburger{
+  background-color: darkcyan;
+  display: none;
+}
+.hamburger-header{
+display: flex;
+padding: 10px 0px 10px 0px;
+}
+.ham-logo-container{
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.ham-nav-links{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.ham-signin-link{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.Hamburger{
+  position: absolute;
+  top: 1px;
+}
+/*animation hamberger*/
+
+.open {
+  height: 120px; /* Ajustez la hauteur selon vos besoins */
+  transition: height 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955),opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+.closed {
+  transition: height 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955),opacity 0.5s ease-in-out;
+  height: 0;
+  opacity: 0;
+}
+/*Styles for Landing page*/
+/*landing animation*/
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.main-landing{
+  background-image: url('./Assets/Images/home-banner1-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Set the initial height to fill the viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.landing-container {
+  color: white;
+  margin-right: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.glace {
+  position: relative;
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  background-color: rgba(0, 0, 0, 0.3); /* Apply tint of black */
+  border-radius: 10px;
+  padding: 0px 10px 0px 10px;
+  margin-bottom: 25px;
+  width: 17rem;
+}
+.glace p{
+  font-family: 'Markot-Regular';
+  font-size: 15px;
+}
+.glace h2{
+  font-family: 'Markot-Book';
+}
+.GetStarted-link {
+   position: relative;
+  color: black;
+  background-color: palevioletred;
+  text-decoration: none;
+  padding: 10px;
+  font-family: 'Markot-Bold';
+  border-radius: 5px;
+  overflow: hidden;
+  width: 13rem;
+  text-align: center; 
+}
+
+.GetStarted-link::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+  transform: translateY(-100%);
+}
+.GetStarted-link:hover::before {
+  transform: translateY(0);
+}
+.GetStarted-link:hover {
+  color: white;
+  background-color: darkcyan;
+}
+@media (max-width: 768px) {
+  .main-landing {
+    height: 50vh; /* Adjust the height for smaller screens */
+    display: flex;
+    justify-content: center;
+    align-items: end;  
+  }
+  .landing-container {
+    margin-right: 0;
+    margin-bottom:1rem ;
+  }
+  nav{
+    display: none;
+  }
+  .container-Hamburger{
+    display: block;
+  }
+}
+/*-------------------BODY--------------------*/
+.HowItWorks-container{
+}
+/*Animate on scroll*/
+@media(prefers-reduced-motion){
+.hidden{
+  transition: none;
+}
+}
+.hidden{
+opacity: 0;
+transition: all 1s;
+filter: blur(5px);
+transform: translateX(-100%);
+display: flex;
+justify-content: space-evenly;
+}
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+/* styles for Body */
+.HowItWorks-child{
+gap: 5px;
+display: flex;
+}
+.child-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 50%;
+}
+
+.body-container h1{
+  font-family: 'Markot-Book';
+  color: darkcyan;
+  font-size: xx-large;
+}
+.body-container h4{
+  font-family: 'Markot-Book';
+  color: rgba(0, 0, 0, 0.7);
+  font-size: large;
+}
+.Alphabet{
+  color: darkcyan;
+  font-family: 'Markot-Bold';
+  font-size: large;
+}
+ .subtitle{
+  color: rgba(0, 0, 0, 0.7);
+  font-family: 'Markot-Bold';
+  font-size: large;
+  margin-bottom: -10px;
+}
+.text{
+  font-family: 'Markot-Regular';
+  font-size: large;
+}
+.resume{
+  color: darkcyan;
+  font-family: 'Markot-Bold';
+  font-size: large; 
+}
+.responsive-image  {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+.child-container{
+  width: 100%;
+}
+.child-container {
+  order: 2;
+}
+
+.image-container {
+  order: 1;
+}
+.hidden{
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: wrap;
+  }
+}
