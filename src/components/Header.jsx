@@ -5,14 +5,19 @@ import { Sling as Hamburger } from "hamburger-react"
 import { useSpring , animated} from '@react-spring/web'
 import '../../src/App.css';
 const Header = () => {
-
-
+  //spring animation for logos
+  const logoAnimation = useSpring({
+    from: { opacity: 0, transform: 'scale(0)' },
+    to: { opacity: 1, transform: 'scale(1)' },
+    config: { tension: 200, friction: 10 },
+    delay: 500,
+  });
     // Navbar
     const Navbar = () => {
         return (
           <nav>
             
-            <img src={Logo} alt='Logo'/>
+            <animated.img style={logoAnimation} src={Logo} alt='Logo'/>
             <div className='navbar-links'>
                 <a href="#" className="nav-link">SMART SLEEP COACH</a>
                 <a href="#" className="nav-link">UPGRADE TO PRO</a>
@@ -43,7 +48,7 @@ const Header = () => {
               />
           </div>
               <div className='ham-logo-container'>
-                <img src={Logo} alt='Logo' />
+                <animated.img style={logoAnimation} src={Logo} alt='Logo' />
               </div>
             </div>
             <div className={toggle1 ? 'open' : 'closed'}>
@@ -70,19 +75,20 @@ const Header = () => {
       React.useEffect(() => {
         setShowAnimation(true);
       }, []);
-      
+
+      //spring animation for text on first landing page
       const h2Spring = useSpring({
         opacity: 1,
         transform: 'translateY(0)',
         from: { opacity: 0, transform: 'translateY(20px)' },
-        delay: 500, // Délai avant le début de l'animation (en millisecondes)
+        delay: 500, // delay befor the animation starts ( millisecondes)
       });
     
       const pSpring = useSpring({
         opacity: 1,
         transform: 'translateY(0)',
         from: { opacity: 0, transform: 'translateY(20px)' },
-        delay: 1000, // Délai avant le début de l'animation (en millisecondes)
+        delay: 1000, // delay befor the animation starts ( millisecondes)
       });
       return(
         <section className={`main-landing ${showAnimation ? 'animate' : ''}`}>
